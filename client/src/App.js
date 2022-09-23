@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Home from "./Components/Home";
+import SignUp from "./Components/SignUp";
+import Login from "./Components/Login";
+import About from "./Components/About";
+import Nav from "./Components/Nav";
+import Employees from "./Components/Employees";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({})
+  let navigate = useNavigate();
+
+
+  const handleUserLogin = (user) => {
+    setCurrentUser(user);
+    navigate('/employees')
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Nav currentUser={currentUser} />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login handleUserLogin={handleUserLogin} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/employees" element={<Employees />} />
+      </Routes>
     </div>
   );
 }
