@@ -1,3 +1,3 @@
 class Promotion < ApplicationRecord
-    belong_to :employee
+    belongs_to :employee
 end
