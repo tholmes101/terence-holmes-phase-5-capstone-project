@@ -63,7 +63,7 @@ function Nav ({currentUser}) {
 
 
       <NavLink
-        to="/employees/EmployeePage"
+        to="/employees"
         exact
         style={linkStyles}
         activeStyle={{

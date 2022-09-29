@@ -6,7 +6,7 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import About from "./Components/About";
 import Nav from "./Components/Nav";
-import Employees from "./Components/Employees/EmployeePage";
+import Employees from "./Components/Employees";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})

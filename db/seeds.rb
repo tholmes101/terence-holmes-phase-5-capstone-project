@@ -6,31 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Seeding database..."
 
+puts "Seeding users..."
+user1 = User.create(username: 'tsmith', password: '******', email:'tsmith@gmail.com', occupation: 'IT Operator', salary: 56000)
+user2 = User.create(username: 'ljones', password: '******', email: 'ljones@gmail.com', occupation: 'Jr Tech Support', salary: 53000)
+user3 = User.create(username: 'tarnold', password: '******', email: 'tarnold@gmail.com', occupation: 'Help Desk', salary: 30000)
+
+puts "Seeding courses..."
+course1 = Course.create(description: 'Software Development')
+course2 = Course.create(description: 'Software Engineering')
+course3 = Course.create(description: 'Cybersecurity')
+
+puts "Seeding signups..."
+Signup.create(user_id: user1.id, course_id: course2.id, time: 11)
+Signup.create(user_id: user1.id, course_id: course1.id, time: 12)
+Signup.create(user_id: user1.id, course_id: course3.id, time: 15)
+
+puts "Seeding skills"
 skill_names = ["SQL","Java","JavaScript","Perl","Python", "C#"]
-promotion_names = ["Junior Developer","Senior Developer","Data Center Tech II","Internet Analyst","Cybersecurity Specialist","Senior Software Engineer"]
-
-Employee.create!(FirstName: "John", LastName: "Davis", Email: "johndavis@gmail.com", Phone: "334-092-9008", HireDate: "07-09-2010", Salary: 84000)
-Employee.create!(FirstName: "Melissa", LastName: "Starks", Email: "mellissastarks@gmail.com", Phone: "908-334-0090", HireDate: "07-09-2015", Salary: 74000)
-Employee.create!(FirstName: "Melvin", LastName: "Lewis", Email: "melvinlewis@gmail.com", Phone: "805-009-4456", HireDate: "02-09-2019", Salary: 80000)
-Employee.create!(FirstName: "Michelle", LastName: "Gordon", Email: "michellegordon@gmail.com", Phone: "406-444-3090", HireDate: "06-02-2005", Salary: 84000)
-Employee.create!(FirstName: "Jesse", LastName: "Williams", Email: "jessiewilliams@gail.com", Phone: "630-309-4420", HireDate: "09-04-2015", Salary: 95000)
-Employee.create!(FirstName: "Mark", LastName: "Johnson", Email: "markjohnson@gmail.com", Phone: "605-333-0045", HireDate: "04-16-2010", Salary: 92000)
-
-Employee.all.each do |employee|
-    3.times do
-      Skill.create(Description: skill_names.sample)     
-    end
+User.all.each do |user|
+  3.times do
+    Skill.create(skill: skill_names.sample, user_id: user.id)
+  end
 end
 
-Employee.all.each do |employee|
-    3.times do
-      Promotion.create(JobName: promotion_names.sample, EmployeeID: employee.id)
-    end
-end
-
-#foreign keys for many to many relationship
-#EmployeeSkill.create(EmployeeID: employee.id, SkillID: skill.id)
-
-puts "Done seeding!"
+puts "✅ Done seeding!"

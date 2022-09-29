@@ -15,33 +15,33 @@ ActiveRecord::Schema.define(version: 2022_09_24_204802) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "employee_skills", force: :cascade do |t|
-    t.integer "EmployeeID"
-    t.integer "SkillID"
+  create_table "courses", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "employees", force: :cascade do |t|
-    t.string "FirstName"
-    t.string "LastName"
-    t.string "Email"
-    t.string "Phone"
-    t.date "HireDate"
-    t.float "Salary"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "promotions", force: :cascade do |t|
-    t.string "JobName"
-    t.integer "EmployeeID"
+  create_table "signups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "course_id"
+    t.integer "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "skills", force: :cascade do |t|
-    t.string "Description"
+    t.string "skill"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "email"
+    t.string "occupation"
+    t.float "salary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
