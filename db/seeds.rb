@@ -8,9 +8,9 @@
 
 
 puts "Seeding users..."
-user1 = User.create(username: 'tsmith', password: '******', email:'tsmith@gmail.com', occupation: 'IT Operator', salary: 56000)
-user2 = User.create(username: 'ljones', password: '******', email: 'ljones@gmail.com', occupation: 'Jr Tech Support', salary: 53000)
-user3 = User.create(username: 'tarnold', password: '******', email: 'tarnold@gmail.com', occupation: 'Help Desk', salary: 30000)
+user1 = User.create(first_name: 'Tony', last_name: 'Smith', password: '******', email:'tsmith@gmail.com', occupation: 'IT Operator', salary: 56000)
+user2 = User.create(first_name: 'Linda', last_name: 'Jones', password: '******', email: 'ljones@gmail.com', occupation: 'Jr Tech Support', salary: 53000)
+user3 = User.create(first_name: 'Tim', last_name: 'Arnold', password: '******', email: 'tarnold@gmail.com', occupation: 'Help Desk', salary: 30000)
 
 puts "Seeding courses..."
 course1 = Course.create(description: 'Software Development')

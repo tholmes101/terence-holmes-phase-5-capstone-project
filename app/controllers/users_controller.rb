@@ -3,31 +3,31 @@ class UsersController < ApplicationController
   def index
     users = User.all
     render json: users
-end
+  end
 
-def create
+  def create
     user = User.create(user_params)
     if user.valid?
         render json: user
     else
         render json: { errors: user.errors.full_messages}, status: :unprocessable_entity
     end
-end
+  end
 
-def destroy
+  def destroy
     user = User.find(params[:id])
     if user
         user.destroy
         render json: user
     else
         render json: {errors: "User not found"}, status: :not_found
-    end
-        
-end
+    end        
+  end
 
 private
 
-def user_params
+  def user_params
     params.permit(:username, :password, :password_confirmation, :email, :occupation, :salary)
 
+  end
 end

@@ -6,7 +6,7 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import About from "./Components/About";
 import Nav from "./Components/Nav";
-import Employees from "./Components/Employees";
+import Users from "./Components/Users";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})
@@ -15,7 +15,7 @@ function App() {
 
   const handleUserLogin = (user) => {
     setCurrentUser(user);
-    navigate('/employees')
+    navigate('/users')
   }
 
 
@@ -29,7 +29,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login handleUserLogin={handleUserLogin} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/employees" element={<Employees />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
     </div>
   );

@@ -63,14 +63,14 @@ function Nav ({currentUser}) {
 
 
       <NavLink
-        to="/employees"
+        to="/users"
         exact
         style={linkStyles}
         activeStyle={{
           background: "darkblue",
         }}
       >
-       Employees
+       Users
       </NavLink>
 
       
