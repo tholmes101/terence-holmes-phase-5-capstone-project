@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getUsers, addUser, delUser } from './features/users/usersSlice'
+import { getUsers, postUser, delUser } from './features/users/usersSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { PacmanLoader } from "react-spinners"
 
@@ -20,10 +20,10 @@ function Users() {
 
     return (
     
-        <div className="User">
+        <div classname="users">
       {loading ? 
 <PacmanLoader color="#36d7b7" /> :
-      <form
+      <form 
       style={{width: "50%", margin: "3%"}}
         onSubmit={(e) => {
           e.preventDefault();
@@ -37,7 +37,7 @@ function Users() {
             occupation: occupation,
             salary: salary
           };
-          dispatch(addUser(newUser))
+          dispatch(postUser(newUser))
         }}
       >
         <label>
@@ -51,6 +51,8 @@ function Users() {
             required={true}
           ></input>
         </label>
+        <br>
+        </br>
         <label>
           Last Name
           <input
@@ -62,6 +64,7 @@ function Users() {
             required={true}
           ></input>
         </label>
+        <br></br>
         <label>
           Email
           <input
@@ -73,6 +76,7 @@ function Users() {
             required={true}
           ></input>
         </label>
+        <br></br>
         <label>
           Password
           <input
@@ -83,7 +87,7 @@ function Users() {
             onChange={(e) => setPassword(e.target.value)}
             required={true}
           ></input>
-        </label>
+        </label><br></br>
         <label>
           Password Confirmation
           <input
@@ -93,9 +97,8 @@ function Users() {
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             required={true}
-          ></input>
-          <input type="submit"></input>
-        </label>
+          ></input> 
+        </label><br></br>
         <label>
           Occupation
           <input
@@ -106,17 +109,18 @@ function Users() {
             onChange={(e) => setOccupation(e.target.value)}
             required={true}
           ></input>
-        </label>
+        </label><br></br>
         <label>
           Salary
           <input
             type="text"
             name="salary"
             placeholder="Salary..."
-            value={email}
+            value={salary}
             onChange={(e) => setSalary(e.target.value)}
             required={true}
-          ></input>
+          ></input><br></br>
+          <input type="submit"></input>
         </label>
       </form>}
 

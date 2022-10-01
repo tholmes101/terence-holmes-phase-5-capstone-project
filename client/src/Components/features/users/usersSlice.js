@@ -62,7 +62,6 @@ const userSlice = createSlice({
         deleteUser: (state, action) => {
             state.data = state.data.filter((user) => user.id !== action.payload.id);
         },
-
     },
     extraReducers: {
         [getUsers.pending]: (state, action) => {
