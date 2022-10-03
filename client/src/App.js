@@ -1,37 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import './App.css';
-import { Route, Routes, useNavigate } from "react-router-dom";
-import Home from "./Components/Home";
-import SignUp from "./Components/SignUp";
-import Login from "./Components/Login";
-import About from "./Components/About";
-import Nav from "./Components/Nav";
-import Users from "./Components/Users";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import EditUser from "./Components/features/users/EditUser";
+import UserList from "./Components/features/users/UserList";
+import AddUser from "./Components/features/users/AddUser";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({})
-  let navigate = useNavigate();
-
-
-  const handleUserLogin = (user) => {
-    setCurrentUser(user);
-    navigate('/users')
-  }
-
+  
 
   return (
-    <div className="App">
-
-      <Nav currentUser={currentUser} />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login handleUserLogin={handleUserLogin} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/users" element={<Users />} />
-      </Routes>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/add-user">
+            <AddUser />
+          </Route>
+          <Route path="/edit-user">
+            <EditUser />
+          </Route>
+          <Route path="/">
+            <UserList />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  
   );
 }
 

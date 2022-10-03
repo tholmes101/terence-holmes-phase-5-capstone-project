@@ -37,7 +37,7 @@ export const delUser = createAsyncThunk("users/deleteUser", async (user) => {
     return data;
   });
   
-  export const updateUser = createAsyncThunk("users/updateUser", async (user) => {
+  export const updUser = createAsyncThunk("users/updUser", async (user) => {
     const config = {
       method: "PATCH",
       headers: {
@@ -59,6 +59,16 @@ const userSlice = createSlice({
         addUser: (state, action) => {
             state.data.push(action.payload);
         },
+        updateUser: (state, action) => {
+            const { id, name, email, occupation, salary } = action.payload;
+            const existingUser = state.data.find((user) => user.id === id);
+            if (existingUser) {
+              existingUser.name = name;
+              existingUser.email = email;
+              existingUser.occupation = occupation;
+              existingUser.salary = salary;
+            };
+          },
         deleteUser: (state, action) => {
             state.data = state.data.filter((user) => user.id !== action.payload.id);
         },
@@ -94,23 +104,26 @@ const userSlice = createSlice({
         [postUser.rejected]: (state, action) => {
             state.loading = false;
         },
-        [updateUser.pending]: (state, action) => {
+        [updUser.pending]: (state, action) => {
             state.loading = true;
         },
-        [updateUser.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.data = state.data.map((user) => {
-                if (user.id === action.payload.id) {
-                    user = action.payload;
-                }
-            });
+        [updUser.fulfilled]: (state, action) => {
+            const { id, name, email, occupation, salary } = action.payload;
+            const existingUser = state.data.find((user) => user.id === id);
+            if (existingUser) {
+              existingUser.name = name;
+              existingUser.email = email;
+              existingUser.occupation = occupation;
+              existingUser.salary = salary;
+            };
         },
-        [updateUser.rejected]: (state, action) => {
+        [updUser.rejected]: (state, action) => {
             state.loading = false;
         },
+       
     },
 });
 
-export const { addUser, deleteUser } = userSlice.actions;
+export const { addUser, updateUser, deleteUser } = userSlice.actions;
 
 export default userSlice.reducer;
