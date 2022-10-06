@@ -1,4 +1,4 @@
 class Course < ApplicationRecord
     has_many :signups
-    has_many :users, through: :signups
+    has_many :employees, through: :signups
 end

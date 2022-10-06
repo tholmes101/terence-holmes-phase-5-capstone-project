@@ -2,15 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 //import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import { postUser } from "./usersSlice";
+import { postEmployee } from "./usersSlice";
 
-function AddUser() {
+function AddEmployee() {
   const dispatch = useDispatch();
  // const history = useHistory();
 
  const [name, setName] = useState("");
- const [password, setPassword] = useState("");
- const [passwordConfirmation, setPasswordConfirmation] = useState("");
  const [email, setEmail] = useState("");
  const [occupation, setOccupation] = useState("");
  const [salary, setSalary] = useState();
@@ -18,8 +16,6 @@ function AddUser() {
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
-  const handlePasswordConfirmation = (e) => setPasswordConfirmation(e.target.value);
   const handleOccupation = (e) => setOccupation(e.target.value);
   const handleSalary = (e) => setSalary(e.target.value);
 
@@ -29,12 +25,10 @@ function AddUser() {
   const handleClick = () => {
   // if (name && email) {
       dispatch(
-        postUser({
+        postEmployee({
           id: usersAmount + 1,
           name,
           email,
-          password,
-          passwordConfirmation,
           occupation,
           salary
 
@@ -55,7 +49,7 @@ function AddUser() {
   return (
     <div className="container">
       <div className="row">
-        <h1>Add user</h1>
+        <h1>Add Employee</h1>
       </div>
       <div className="row">
         <div className="seven columns">
@@ -77,24 +71,6 @@ function AddUser() {
             onChange={handleEmail}
             value={email}
           />
-          <label htmlFor="passwordInput">Password</label>
-          <input
-            className="u-full-width"
-            type="text"
-            placeholder="Password..."
-            id="passwordInput"
-            onChange={handlePassword}
-            value={password}
-          />
-          <label htmlFor="passwordConfirmationInput">Password Confirmatiom</label>
-          <input
-            className="u-full-width"
-            type="text"
-            placeholder="Password Confirmation..."
-            id="passwordConfirmationInput"
-            onChange={handlePasswordConfirmation}
-            value={passwordConfirmation}
-          />
           <label htmlFor="occupationInput">Occupation</label>
           <input
             className="u-full-width"
@@ -115,11 +91,11 @@ function AddUser() {
           />
           
           <button onClick={handleClick} className="button-primary">
-            Add user
+            Add Employee
           </button>
         </div>
       </div>
     </div>
   );
 }
-export default AddUser;
+export default AddEmployee;

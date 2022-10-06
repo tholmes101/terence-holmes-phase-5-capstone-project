@@ -1,9 +1,9 @@
 import React from "react";
 import './App.css';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import EditUser from "./Components/features/users/EditUser";
-import UserList from "./Components/features/users/UserList";
-import AddUser from "./Components/features/users/AddUser";
+import EditEmployee from "./Components/features/users/EditEmployee";
+import EmployeeList from "./Components/features/users/EmployeeList";
+import AddEmployee from "./Components/features/users/AddEmployee";
 
 function App() {
   
@@ -12,14 +12,14 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route path="/add-user">
-            <AddUser />
+          <Route path="/add-employee">
+            <AddEmployee />
           </Route>
-          <Route path="/edit-user">
-            <EditUser />
+          <Route path="/edit-employee">
+            <EditEmployee />
           </Route>
           <Route path="/">
-            <UserList />
+            <EmployeeList />
           </Route>
         </Switch>
       </div>

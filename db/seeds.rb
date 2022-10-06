@@ -7,27 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts "Seeding users..."
-user1 = User.create(name: 'Tony Smith', password: '******', email:'tsmith@gmail.com', occupation: 'IT Operator', salary: 56000)
-user2 = User.create(name: 'Linda Jones', password: '******', email: 'ljones@gmail.com', occupation: 'Jr Tech Support', salary: 53000)
-user3 = User.create(name: 'Tim Arnold', password: '******', email: 'tarnold@gmail.com', occupation: 'Help Desk', salary: 30000)
+puts "Seeding employees..."
+employee1 = Employee.create(name: 'Tony Smith', email:'tsmith@gmail.com', occupation: 'IT Operator', salary: 56000)
+employee2 = Employee.create(name: 'Linda Jones', email: 'ljones@gmail.com', occupation: 'Jr Tech Support', salary: 53000)
+employee3 = Employee.create(name: 'Tim Arnold', email: 'tarnold@gmail.com', occupation: 'Help Desk', salary: 30000)
 
 puts "Seeding courses..."
-course1 = Course.create(description: 'Software Development')
-course2 = Course.create(description: 'Software Engineering')
-course3 = Course.create(description: 'Cybersecurity')
+course1 = Course.create(description: 'Software Development', employee_id: employee2.id)
+course2 = Course.create(description: 'Software Engineering', employee_id: employee1.id)
+course3 = Course.create(description: 'Cybersecurity', employee_id: employee3.id)
 
 puts "Seeding signups..."
-Signup.create(user_id: user1.id, course_id: course2.id, time: 11)
-Signup.create(user_id: user1.id, course_id: course1.id, time: 12)
-Signup.create(user_id: user1.id, course_id: course3.id, time: 15)
+Signup.create(employee_id: employee1.id, course_id: course2.id, time: 11)
+Signup.create(employee_id: employee1.id, course_id: course1.id, time: 12)
+Signup.create(employee_id: employee1.id, course_id: course3.id, time: 15)
 
-puts "Seeding skills"
-skill_names = ["SQL","Java","JavaScript","Perl","Python", "C#"]
-User.all.each do |user|
-  3.times do
-    Skill.create(skill: skill_names.sample, user_id: user.id)
-  end
-end
 
 puts "✅ Done seeding!"

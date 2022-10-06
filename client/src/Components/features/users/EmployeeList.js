@@ -1,35 +1,35 @@
-import { getUsers, delUser } from "./usersSlice";
+import { getEmployees, delEmployee } from "./usersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 
-function UserList() {
+function EmployeeList() {
   const dispatch = useDispatch();
 
   const { data } = useSelector((state) => state.users);
   const loading = useSelector((state) => state.loading);
 
   const handleDelete = (id) => {
-    dispatch(delUser({ id }));
+    dispatch(delEmployee({ id }));
   };
 
   return (
     <div className="container">
       <div className="row">
-        <h1>Redux CRUD User app</h1>
+        <h1>Redux CRUD Employee app</h1>
       </div>
       <div className="row">
-        <div className="two columns">
+        <div className="three columns">
           <button
-            onClick={() => dispatch(getUsers())}
+            onClick={() => dispatch(getEmployees())}
             className="button-primary"
           >
-            Load users
+            Load Employees
           </button>
         </div>
-        <div className="two columns">
-          <Link to="/add-user">
-            <button className="button-primary">Add user</button>
+        <div className="three columns">
+          <Link to="/add-employee">
+            <button className="button-primary">Add Employees</button>
           </Link>
         </div>
       </div>
@@ -59,7 +59,7 @@ function UserList() {
                     <td>{salary}</td>
                     <td>
                       <button onClick={() => handleDelete(id)}>Delete</button>
-                      <Link to={`/edit-user/${id}`}>
+                      <Link to={`/edit-employee/${id}`}>
                         <button>Edit</button>
                       </Link>
                     </td>
@@ -72,4 +72,4 @@ function UserList() {
     </div>
   );
 }
-export default UserList;
+export default EmployeeList;

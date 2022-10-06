@@ -2,23 +2,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import { useState } from "react";
-import { updUser} from "./usersSlice";
+import { updEmployee} from "./usersSlice";
 
-function EditUser() {
+function EditEmployee() {
   const { pathname } = useLocation();
-  const userId = parseInt(pathname.replace("/edit-user/", ""));
+  const empId = parseInt(pathname.replace("/edit-employee/", ""));
 
-  const user = useSelector((state) =>
-    state.users.data.find((user) => user.id === userId)
+  const emp = useSelector((state) =>
+    state.users.data.find((emp) => emp.id === empId)
   );
 
   const dispatch = useDispatch();
   //const history = useHistory();
 
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [occupation, setOccupation] = useState(user.occupation);
-  const [salary, setSalary] = useState(user.salary);
+  const [name, setName] = useState(emp.name);
+  const [email, setEmail] = useState(emp.email);
+  const [occupation, setOccupation] = useState(emp.occupation);
+  const [salary, setSalary] = useState(emp.salary);
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
@@ -28,8 +28,8 @@ function EditUser() {
   const handleClick = () => {
     //if (name && email) {
       dispatch(
-        updUser({
-          id: userId,
+        updEmployee({
+          id: empId,
           name,
           email,
           occupation,
@@ -43,7 +43,7 @@ function EditUser() {
   return (
     <div className="container">
       <div className="row">
-        <h1>Edit user</h1>
+        <h1>Edit employee</h1>
       </div>
       <div className="row">
         <div className="four columns">
@@ -85,11 +85,11 @@ function EditUser() {
           />
           
           <button onClick={handleClick} className="button-primary">
-            Save user
+            Save employee
           </button>
         </div>
       </div>
     </div>
   );
 }
-export default EditUser;
+export default EditEmployee;
