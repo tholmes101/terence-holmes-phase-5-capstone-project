@@ -1,8 +1,8 @@
 class EmployeesController < ApplicationController
 
   def index
-    employees = Employee.all
-    render json: employees, include: :courses
+    @employees = Employee.all
+    render json: @employees, include: [:signups, :courses]
   end
 
   def create
