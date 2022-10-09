@@ -1,47 +1,67 @@
 import React, { useState } from "react";
+import { Error, FormField } from "../styles";
 
-const Login = ({handleUserLogin}) => {
-  const [userName, setUserName] = useState("");
-  const [passWord, setPassword] = useState("");
+function Login({ onLogin }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-
-  const handleFormSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    const credentials = {
-      userName,
-      passWord,
-    };
-
-    // Check that user input is good by sending 
-    // request to the backend and **authenticating user**
-    handleUserLogin(credentials)
-
-  };
+    setIsLoading(true);
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
 
   return (
-    <div className="Login">
-
-
-      <form onSubmit={handleFormSubmit}>
-        <h1>Login</h1>
-        <input
-          type="text"
-          placeholder="Username"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          placeholder="Password"
-          value={passWord}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <input type="submit"></input>
-      </form>
-
-
-
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="row">
+        <div className="six columns">
+          <label htmlFor="username">Username</label>
+          <input
+            className="u-full-width"
+            type="text"
+            placeholder="Username..."
+            id="username"
+            autoComplete="off"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            className="u-full-width"
+            type="password"
+            placeholder="Password..."
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button variant="fill" className="button-primary" type="submit">
+            {isLoading ? "Loading..." : "Login"}
+          </button>
+          <FormField>
+            {errors.map((err) => (
+              <Error key={err}>{err}</Error>
+            ))}
+          </FormField>
+        </div>
+      </div>
+    </form>
   );
-};
+}
+
 export default Login;
