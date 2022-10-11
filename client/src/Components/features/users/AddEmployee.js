@@ -20,7 +20,7 @@ function AddEmployee() {
   const handleSalary = (e) => setSalary(e.target.value);
 
 
-  const usersAmount = useSelector((state) => state.users.data.length);
+  const usersAmount = useSelector((state) => state.emps.data.length);
 
   const handleClick = () => {
   // if (name && email) {

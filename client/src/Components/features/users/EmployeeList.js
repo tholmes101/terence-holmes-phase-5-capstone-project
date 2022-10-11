@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function EmployeeList() {
   const dispatch = useDispatch();
 
-  const { data } = useSelector((state) => state.users);
+  const { data } = useSelector((state) => state.emps);
   const loading = useSelector((state) => state.loading);
 
   const handleDelete = (id) => {

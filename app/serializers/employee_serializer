@@ -1,0 +1,4 @@
+class EmployeeSerializer < ActiveModel::Serializer
+    attributes :id, :name, :email, :occupation, :salary
+   # has_one :user
+end

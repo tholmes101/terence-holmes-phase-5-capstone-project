@@ -24,7 +24,7 @@ export const delEmployee = createAsyncThunk("users/deleteUser", async (employee)
     return data;
   });
   
-  export const postEmployee = createAsyncThunk("employees/postemployee", async (employee) => {
+  export const postEmployee = createAsyncThunk("employees/postEmployee", async (employee) => {
     const config = {
       method: "POST",
       headers: {
@@ -53,7 +53,7 @@ export const delEmployee = createAsyncThunk("users/deleteUser", async (employee)
 
 
 const userSlice = createSlice({
-    name: "users",
+    name: "emps",
     initialState,
     reducers: {
         addEmployee: (state, action) => {

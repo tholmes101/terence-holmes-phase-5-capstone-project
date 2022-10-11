@@ -26,7 +26,7 @@ function SignUp({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((userxy) => onLogin(userxy));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

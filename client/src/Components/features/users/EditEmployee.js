@@ -9,7 +9,7 @@ function EditEmployee() {
   const empId = parseInt(pathname.replace("/edit-employee/", ""));
 
   const emp = useSelector((state) =>
-    state.users.data.find((emp) => emp.id === empId)
+    state.emps.data.find((emp) => emp.id === empId)
   );
 
   const dispatch = useDispatch();
