@@ -16,7 +16,7 @@ function EmployeeList() {
   return (
     <div className="container">
       <div className="row">
-        <h1>Redux CRUD Employee app</h1>
+        <h1>Holmes Corp. Employee App</h1>
       </div>
       <div className="row">
         <div className="three columns">

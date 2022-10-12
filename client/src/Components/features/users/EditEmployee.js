@@ -51,7 +51,7 @@ function EditEmployee() {
           <input
             className="u-full-width"
             type="text"
-            placeholder="test@mailbox.com"
+            placeholder="Edit Name..."
             id="nameInput"
             onChange={handleName}
             value={name}
@@ -60,7 +60,7 @@ function EditEmployee() {
           <input
             className="u-full-width"
             type="email"
-            placeholder="test@mailbox.com"
+            placeholder="Edit Email..."
             id="emailInput"
             onChange={handleEmail}
             value={email}
@@ -69,7 +69,7 @@ function EditEmployee() {
           <input
             className="u-full-width"
             type="text"
-            placeholder="test@mailbox.com"
+            placeholder="Edit Occupation..."
             id="occupationInput"
             onChange={handleOccupation}
             value={occupation}
@@ -78,7 +78,7 @@ function EditEmployee() {
           <input
             className="u-full-width"
             type="text"
-            placeholder="test@mailbox.com"
+            placeholder="Edit Salary..."
             id="salaryInput"
             onChange={handleSalary}
             value={salary}
