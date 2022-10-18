@@ -2,19 +2,20 @@ import { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
-function LoginPage({ onLogin }) {
+function LoginPage({setUser}) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <Wrapper>
     <div>
-      <h1>Holmes Corp. Employee App </h1>
+      
       {showLogin ? (
+        
         <>
-          <Login onLogin={onLogin} />
-          
+        <Login setUser={setUser}/>
           <p>
             Don't have an account? &nbsp;
             <button className="button-primary" onClick={() => setShowLogin(false)}>
@@ -24,7 +25,7 @@ function LoginPage({ onLogin }) {
         </>
       ) : (
         <>
-          <SignUp onLogin={onLogin} />
+        <SignUp setUser={setUser}/>
           <p>
             Already have an account? &nbsp;
             <button className="button-primary" onClick={() => setShowLogin(true)}>
@@ -34,7 +35,7 @@ function LoginPage({ onLogin }) {
         </>
       )}
     </div>
-    </Wrapper>
+  </Wrapper>
   );
 }
 

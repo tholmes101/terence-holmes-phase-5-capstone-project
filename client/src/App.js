@@ -4,15 +4,17 @@ import EditEmployee from "./Components/features/users/EditEmployee";
 import EmployeeList from "./Components/features/users/EmployeeList";
 import AddEmployee from "./Components/features/users/AddEmployee";
 import React, { useEffect, useState } from "react";
+import Login from "./Components/Login"
 import SignUp from "./Components/SignUp";
 import LoginPage from "./Components/LoginPage";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
+import styled from "styled-components";
 
 function App() {
 
   const [user, setUser] = useState(null);
-  
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -22,8 +24,25 @@ function App() {
     });
   }, []);
 
-  if (!user) return <LoginPage onLogin={setUser} />;
-  
+  if (!user) return (
+    
+   <div>
+    <Home />
+   <Switch>
+    
+     <Route path="/page">
+      <LoginPage setUser={setUser}/>
+     </Route>
+    <Route path="/login">
+      <Login setUser={setUser}/>
+    </Route>
+    <Route path="/signup">
+      <SignUp setUser={setUser}/>
+    </Route>
+  </Switch>
+  </div>
+
+  )
   return (
     <>
       <NavBar user={user} setUser={setUser} />

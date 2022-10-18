@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { useState } from "react";
 import { updEmployee} from "./usersSlice";
+import { Link } from "react-router-dom";
 
 function EditEmployee() {
   const { pathname } = useLocation();
@@ -83,10 +84,11 @@ function EditEmployee() {
             onChange={handleSalary}
             value={salary}
           />
-          
+          <Link to="/">
           <button onClick={handleClick} className="button-primary">
-            Save employee
+            Save Changes
           </button>
+          </Link>
         </div>
       </div>
     </div>

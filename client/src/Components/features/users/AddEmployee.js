@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 //import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { postEmployee } from "./usersSlice";
+import { Link } from "react-router-dom";
 
 function AddEmployee() {
   const dispatch = useDispatch();
@@ -89,10 +90,11 @@ function AddEmployee() {
             onChange={handleSalary}
             value={salary}
           />
-          
+          <Link to="/">
           <button onClick={handleClick} className="button-primary">
             Add Employee
           </button>
+          </Link>
         </div>
       </div>
     </div>
