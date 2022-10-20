@@ -40,7 +40,6 @@ function EmployeeList() {
           <table className="u-full-width">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Occupation</th>
@@ -50,21 +49,35 @@ function EmployeeList() {
             </thead>
             <tbody>
               {data.length &&
-                data.map(({ id, name, email, occupation, salary }, i) => (
+                data.map(({id, name, email, occupation, salary,courses,signups}, i) => (
                   <tr key={i}>
-                    <td>{id}</td>
                     <td>{name}</td>
                     <td>{email}</td>
                     <td>{occupation}</td>
                     <td>{salary}</td>
+                    
                     <td>
                       <button onClick={() => handleDelete(id)}>Delete</button>
                       <Link to={`/edit-employee/${id}`}>
                         <button>Edit</button>
                       </Link>
                     </td>
+                    {courses.map(course => {
+                      return (
+                        <td>
+                          <ul>Courses: {course.description}</ul>
+                        </td>
+                       );
+                    })}
+                    {signups.map(signup => {
+                      return (
+                        <td>
+                          <ul>Signup Time: {signup.time}</ul>
+                        </td>
+                       );
+                    })}
                   </tr>
-                ))}
+                  ))}
             </tbody>
           </table>
         )}

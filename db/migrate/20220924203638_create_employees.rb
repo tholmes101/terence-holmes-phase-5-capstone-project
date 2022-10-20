@@ -5,8 +5,6 @@ class CreateEmployees < ActiveRecord::Migration[6.1]
       t.string :email
       t.string :occupation
       t.float :salary
-
-      t.timestamps
     end
   end
 end

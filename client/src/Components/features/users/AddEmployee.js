@@ -1,19 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { postEmployee } from "./usersSlice";
 import { Link } from "react-router-dom";
+import { Error, FormField } from "./styles";
+
 
 function AddEmployee() {
   const dispatch = useDispatch();
- // const history = useHistory();
+  const history = useHistory();
 
  const [name, setName] = useState("");
  const [email, setEmail] = useState("");
  const [occupation, setOccupation] = useState("");
  const [salary, setSalary] = useState();
-//const [error, setError] = useState(null);
+ const [errors, setErrors] = useState(null);
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
@@ -24,7 +25,7 @@ function AddEmployee() {
   const usersAmount = useSelector((state) => state.emps.data.length);
 
   const handleClick = () => {
-  // if (name && email) {
+  if (name && email && occupation && salary) {
       dispatch(
         postEmployee({
           id: usersAmount + 1,
@@ -36,15 +37,17 @@ function AddEmployee() {
         })
       );
     
-    //  setError(null);
-    //  history.push("/");
-   // } 
-   // else {
-   //   setError("Fill in all fields");
-   // }
+     setErrors(null);
+     history.push("/");
+   } 
+   else {
+     setErrors("Fill in all fields");
+    }
 
-   // setName("");
-   // setEmail("");
+   setName("");
+   setEmail("");
+   setOccupation("");
+   setSalary();
   };
 
   return (
@@ -90,11 +93,14 @@ function AddEmployee() {
             onChange={handleSalary}
             value={salary}
           />
+          {errors && errors && errors && errors}
           <Link to="/">
           <button onClick={handleClick} className="button-primary">
             Add Employee
           </button>
           </Link>
+          
+          
         </div>
       </div>
     </div>

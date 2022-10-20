@@ -33,12 +33,6 @@ function App() {
      <Route path="/page">
       <LoginPage setUser={setUser}/>
      </Route>
-    <Route path="/login">
-      <Login setUser={setUser}/>
-    </Route>
-    <Route path="/signup">
-      <SignUp setUser={setUser}/>
-    </Route>
   </Switch>
   </div>
 
