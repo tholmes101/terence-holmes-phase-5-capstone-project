@@ -55,27 +55,14 @@ function EmployeeList() {
                     <td>{email}</td>
                     <td>{occupation}</td>
                     <td>{salary}</td>
-                    
                     <td>
                       <button onClick={() => handleDelete(id)}>Delete</button>
                       <Link to={`/edit-employee/${id}`}>
                         <button>Edit</button>
                       </Link>
                     </td>
-                    {courses.map(course => {
-                      return (
-                        <td>
-                          <ul>Courses: {course.description}</ul>
-                        </td>
-                       );
-                    })}
-                    {signups.map(signup => {
-                      return (
-                        <td>
-                          <ul>Signup Time: {signup.time}</ul>
-                        </td>
-                       );
-                    })}
+                   {courses.map(courses => <ul>Courses: {courses.description}</ul>)}
+                   {signups.map(signups => <ul>Signup Time: {signups.time}</ul>)}
                   </tr>
                   ))}
             </tbody>
