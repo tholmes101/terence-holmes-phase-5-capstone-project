@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { useState } from "react";
 import { updEmployee} from "./usersSlice";
@@ -14,12 +14,13 @@ function EditEmployee() {
   );
 
   const dispatch = useDispatch();
-  //const history = useHistory();
+  const history = useHistory();
 
   const [name, setName] = useState(emp.name);
   const [email, setEmail] = useState(emp.email);
   const [occupation, setOccupation] = useState(emp.occupation);
   const [salary, setSalary] = useState(emp.salary);
+  const [errors, setErrors] = useState(null);
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
@@ -27,7 +28,7 @@ function EditEmployee() {
   const handleSalary = (e) => setSalary(e.target.value);
 
   const handleClick = () => {
-    //if (name && email) {
+    if (name && email && occupation && salary) {
       dispatch(
         updEmployee({
           id: empId,
@@ -37,8 +38,11 @@ function EditEmployee() {
           salary
         })
       );
-
-  //  }
+      setErrors(null);
+      history.push("/");
+    } else {
+      setErrors("Fill in all fields"); 
+    }
   };
 
   return (
@@ -80,11 +84,10 @@ function EditEmployee() {
             onChange={handleSalary}
             value={salary}
           />
-          <Link to="/">
+          {errors && errors && errors && errors}<br></br>
           <button onClick={handleClick} className="button-primary">
             Save Changes
           </button>
-          </Link>
         </div>
       </div>
     </div>
