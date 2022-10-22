@@ -61,8 +61,7 @@ function EmployeeList() {
                         <button>Edit</button>
                       </Link>
                     </td>
-                   {courses.map(courses => <ul>Courses: {courses.description}</ul>)}
-                   {signups.map(signups => <ul>Signup Time: {signups.time}</ul>)}
+                   
                   </tr>
                   ))}
             </tbody>

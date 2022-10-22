@@ -1,15 +1,13 @@
 import './App.css';
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import EditEmployee from "./Components/features/users/EditEmployee";
 import EmployeeList from "./Components/features/users/EmployeeList";
 import AddEmployee from "./Components/features/users/AddEmployee";
 import React, { useEffect, useState } from "react";
-import Login from "./Components/Login"
-import SignUp from "./Components/SignUp";
 import LoginPage from "./Components/LoginPage";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
-import styled from "styled-components";
+import About from "./Components/About"
 
 function App() {
 
@@ -28,12 +26,14 @@ function App() {
     
    <div>
     <Home />
-   <Switch>
-    
-     <Route path="/page">
-      <LoginPage setUser={setUser}/>
-     </Route>
-  </Switch>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/page">
+          <LoginPage setUser={setUser} />
+        </Route>
+      </Switch>
   </div>
 
   )

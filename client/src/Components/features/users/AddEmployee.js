@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { postEmployee } from "./usersSlice";
 import { Link } from "react-router-dom";
-import { Error, FormField } from "./styles";
+//import { Error, FormField } from "./styles";
 
 
 function AddEmployee() {
@@ -61,7 +61,6 @@ function AddEmployee() {
           <input
             className="u-full-width"
             type="text"
-            placeholder="Name..."
             id="nameInput"
             onChange={handleName}
             value={name}
@@ -70,7 +69,6 @@ function AddEmployee() {
           <input
             className="u-full-width"
             type="email"
-            placeholder="Email..."
             id="emailInput"
             onChange={handleEmail}
             value={email}
@@ -79,7 +77,6 @@ function AddEmployee() {
           <input
             className="u-full-width"
             type="text"
-            placeholder="Occupation..."
             id="occupationInput"
             onChange={handleOccupation}
             value={occupation}
@@ -88,19 +85,14 @@ function AddEmployee() {
           <input
             className="u-full-width"
             type="text"
-            placeholder="Salary..."
             id="salaryInput"
             onChange={handleSalary}
             value={salary}
           />
-          {errors && errors && errors && errors}
-          <Link to="/">
+          {errors && errors && errors && errors}<br></br>
           <button onClick={handleClick} className="button-primary">
             Add Employee
           </button>
-          </Link>
-          
-          
         </div>
       </div>
     </div>

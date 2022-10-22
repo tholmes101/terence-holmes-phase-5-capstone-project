@@ -36,7 +36,7 @@ function SignUp({ setUser }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="row">
-        <div className="six columns">
+        <div className="twelve columns">
           <label htmlFor="username">Username</label>
           <input
             className="u-full-width"
