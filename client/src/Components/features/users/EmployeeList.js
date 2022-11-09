@@ -1,16 +1,17 @@
-import { getEmployees, delEmployee } from "./usersSlice";
+import { getEmployees, destroyEmployee } from "./usersSlice";
 import { useDispatch, useSelector } from "react-redux";
-
 import { Link } from "react-router-dom";
 
+// Displays the employee home page
+// Creates a table with buttons to load, edit, and delete employees
 function EmployeeList() {
   const dispatch = useDispatch();
 
-  const { data } = useSelector((state) => state.emps);
+  const { data } = useSelector((state) => state.employees);
   const loading = useSelector((state) => state.loading);
 
   const handleDelete = (id) => {
-    dispatch(delEmployee({ id }));
+    dispatch(destroyEmployee({ id }));
   };
 
   return (
@@ -49,8 +50,8 @@ function EmployeeList() {
             </thead>
             <tbody>
               {data.length &&
-                data.map(({id, name, email, occupation, salary,courses,signups}, i) => (
-                  <tr key={i}>
+                data.map(({id, name, email, occupation, salary}, index) => (
+                  <tr key={index}>
                     <td>{name}</td>
                     <td>{email}</td>
                     <td>{occupation}</td>

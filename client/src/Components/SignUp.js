@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Error, FormField } from "../styles";
 
-
+// Sign Up feature - allows new users to sign up
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -9,8 +9,8 @@ function SignUp({ setUser }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     setErrors([]);
     setIsLoading(true);
     fetch("/signup", {
@@ -23,12 +23,12 @@ function SignUp({ setUser }) {
         password,
         password_confirmation: passwordConfirmation
       }),
-    }).then((r) => {
+    }).then((response) => {
       setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        response.json().then((error) => setErrors(error.errors));
       }
     });
   }
@@ -44,7 +44,7 @@ function SignUp({ setUser }) {
             id="username"
             autoComplete="off"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(event) => setUsername(event.target.value)}
           />
 
           <label htmlFor="password">Password</label>
@@ -53,7 +53,7 @@ function SignUp({ setUser }) {
             type="password"
             id="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             autoComplete="current-password"
           />
           <label htmlFor="password">Password Confirmation</label>
@@ -62,14 +62,14 @@ function SignUp({ setUser }) {
             type="password"
             id="password_confirmation"
             value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            onChange={(event) => setPasswordConfirmation(event.target.value)}
             autoComplete="current-password"
           />
 
           <button className="button-primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
           <FormField>
-            {errors.map((err) => (
-              <Error key={err}>{err}</Error>
+            {errors.map((error) => (
+              <Error key={error}>{error}</Error>
             ))}
           </FormField>
         </div>

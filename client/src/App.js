@@ -9,10 +9,12 @@ import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import About from "./Components/About"
 
+// Provides an Auto Login feature - 
+// Users can log in and stay logged in when they refresh the page
+// or navigate back to the site from somewhere else
 function App() {
-
   const [user, setUser] = useState(null);
-
+  
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -22,6 +24,12 @@ function App() {
     });
   }, []);
 
+  // Performs routes for 
+  // 1. About Page
+  // 2. Login Page
+  // 3. Add Employee
+  // 4. Edit Employee
+  // 5. Employee List
   if (!user) return (
     
    <div>

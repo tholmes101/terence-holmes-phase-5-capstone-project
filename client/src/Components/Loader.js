@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
+
+// Displays 4 balls with a yoyo effect through the use of Green Sock amimation
 function Loader  () {
   const blue = useRef(null);
   const red = useRef(null);

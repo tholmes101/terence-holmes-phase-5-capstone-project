@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
 
+// Displays the app's home page to login or sign up.
 function Home() {
 
   

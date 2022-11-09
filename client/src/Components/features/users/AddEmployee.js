@@ -2,10 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { postEmployee } from "./usersSlice";
-import { Link } from "react-router-dom";
-import { Error, FormField } from "./styles";
 
-
+// Create a basic form to add a new employee
 function AddEmployee() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -16,13 +14,13 @@ function AddEmployee() {
  const [salary, setSalary] = useState();
  const [errors, setErrors] = useState(null);
 
-  const handleName = (e) => setName(e.target.value);
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handleOccupation = (e) => setOccupation(e.target.value);
-  const handleSalary = (e) => setSalary(e.target.value);
+  const handleName = (event) => setName(event.target.value);
+  const handleEmail = (event) => setEmail(event.target.value);
+  const handleOccupation = (event) => setOccupation(event.target.value);
+  const handleSalary = (event) => setSalary(event.target.value);
 
 
-  const usersAmount = useSelector((state) => state.emps.data.length);
+  const usersAmount = useSelector((state) => state.employees.data.length);
 
   const handleClick = () => {
   if (name && email && occupation && salary) {

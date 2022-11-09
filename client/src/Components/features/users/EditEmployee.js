@@ -2,36 +2,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 
 import { useState } from "react";
-import { updEmployee} from "./usersSlice";
-import { Link } from "react-router-dom";
+import { changeEmployee} from "./usersSlice";
 
+// Creates a basic form to change employee data 
 function EditEmployee() {
   const { pathname } = useLocation();
-  const empId = parseInt(pathname.replace("/edit-employee/", ""));
+  const employeeId = parseInt(pathname.replace("/edit-employee/", ""));
 
-  const emp = useSelector((state) =>
-    state.emps.data.find((emp) => emp.id === empId)
+  const employee = useSelector((state) =>
+    state.employees.data.find((employee) => employee.id === employeeId)
   );
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [name, setName] = useState(emp.name);
-  const [email, setEmail] = useState(emp.email);
-  const [occupation, setOccupation] = useState(emp.occupation);
-  const [salary, setSalary] = useState(emp.salary);
+  const [name, setName] = useState(employee.name);
+  const [email, setEmail] = useState(employee.email);
+  const [occupation, setOccupation] = useState(employee.occupation);
+  const [salary, setSalary] = useState(employee.salary);
   const [errors, setErrors] = useState(null);
 
-  const handleName = (e) => setName(e.target.value);
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handleOccupation = (e) => setOccupation(e.target.value);
-  const handleSalary = (e) => setSalary(e.target.value);
+  const handleName = (event) => setName(event.target.value);
+  const handleEmail = (event) => setEmail(event.target.value);
+  const handleOccupation = (event) => setOccupation(event.target.value);
+  const handleSalary = (event) => setSalary(event.target.value);
 
   const handleClick = () => {
     if (name && email && occupation && salary) {
       dispatch(
-        updEmployee({
-          id: empId,
+        changeEmployee({
+          id: employeeId,
           name,
           email,
           occupation,

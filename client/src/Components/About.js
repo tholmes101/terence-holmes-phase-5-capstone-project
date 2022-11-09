@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 
+// Gives a brief description on the app.
 function About() {
     return (
       <Wrapper>

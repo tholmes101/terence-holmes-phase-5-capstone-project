@@ -3,6 +3,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import styled from "styled-components";
 
+// Creates a page to login or signup
 function LoginPage({setUser}) {
   const [showLogin, setShowLogin] = useState(true);
 

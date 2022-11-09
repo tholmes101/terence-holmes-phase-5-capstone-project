@@ -1,9 +1,10 @@
 import React from "react";
 
-function NavBar({ user, setUser }) {
+// Logout Feature - allows users to logout of the app
+function NavBar({ setUser }) {
   function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
+    fetch("/logout", { method: "DELETE" }).then((response) => {
+      if (response.ok) {
         setUser(null);
       }
     });
