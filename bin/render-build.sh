@@ -3,5 +3,6 @@
 set -o errexit
 
 bundle install
-# build
-npm install --prefix client && npm run build --prefix client
+bundle exec rails assets:precompile
+bundle exec rails assets:clean
+bundle exec rails db:migrate
