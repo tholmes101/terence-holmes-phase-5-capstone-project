@@ -2,15 +2,11 @@
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Heroku.
+This project is designed as a full stack web application that has a user login or signup request to access an employee database.
 
-## Requirements
-
-- Ruby 2.7.4
-- NodeJS (v16), and npm
-- Heroku CLI
-- Postgresql
+- Utilized Javascript/React frontend and Rails/Active Record backend application development
+- Implemented Redux and middleware for asynchronous data retrieval
+- Performed user validations along with password protection and authentication
 
 See Environment Setup below for instructions on installing these tools if you
 don't already have them.
