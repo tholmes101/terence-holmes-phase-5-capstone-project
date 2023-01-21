@@ -8,9 +8,6 @@ This project is designed as a full stack web application that has a user login o
 - Implemented Redux and middleware for asynchronous data retrieval
 - Performed user validations along with password protection and authentication
 
-See Environment Setup below for instructions on installing these tools if you
-don't already have them.
-
 ## Setup
 
 Start by **cloning** (not forking) the project template repository and removing
