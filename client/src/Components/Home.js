@@ -15,11 +15,11 @@ function Home() {
         </Logo>
         <Link to="/page">
           <Loader /><br></br>
-          <button className="button-primary">Click Here To Login Or Sign Up</button>
+          <button className="button-primary">Login Or Sign Up</button>
         </Link>
         <br></br>
         <Link to="/about">
-          <button className="button-primary">Click Here To Learn About This App</button>
+          <button className="button-primary">Learn About This App</button>
         </Link>
       </div>
     </center>

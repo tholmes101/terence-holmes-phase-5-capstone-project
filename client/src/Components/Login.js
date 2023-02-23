@@ -49,7 +49,7 @@ function Login({setUser}) {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <button variant="fill" className="button-primary" type="submit">
+          <button className="button-primary">
             {isLoading ? "Loading..." : "Login"}
           </button>
           <FormField>
