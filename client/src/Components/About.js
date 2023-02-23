@@ -6,7 +6,7 @@ function About() {
     return (
       <Wrapper>
       <div>
-      A user from Holmes Corp Training Academy has access to an app 
+      A user from Naval Tech Solutions has access to an app 
       to manage employees with their training courses.
       <br></br>
       <br></br>

@@ -17,7 +17,7 @@ function EmployeeList() {
   return (
     <div className="container">
       <div className="row">
-        <h1>Naval Tech Solutions</h1>
+        <h2>Naval Tech Solutions Employees</h2>
       </div>
       <div className="row">
         <div className="three columns">
