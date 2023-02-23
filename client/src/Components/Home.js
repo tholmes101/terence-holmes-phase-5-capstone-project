@@ -9,7 +9,7 @@ function Home() {
   return (
     <center>
       <div>
-      <h1>Holmes Corp. Employee App</h1>
+      <h1>Naval Tech Solutions</h1>
         <Link to="/page">
           <Loader /><br></br>
           <button className="button-primary">Click Here To Login Or Sign Up</button>

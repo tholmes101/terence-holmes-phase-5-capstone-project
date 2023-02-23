@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 // Logout Feature - allows users to logout of the app
 function NavBar({ user,setUser }) {
@@ -11,14 +12,22 @@ function NavBar({ user,setUser }) {
   }
 
   return (
-    <header>
-      
+    <Nav>
+        <p> Logged in as: {user.username} </p>
         <button className="button-primary" variant="outline" onClick={handleLogoutClick}>
           Logout
         </button>
-        <p> Logged in as: {user.username} </p>
-    </header>
+        
+    </Nav>
   );
 }
+
+
+const Nav = styled.nav`
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  right: 8px;
+`;
 
 export default NavBar;
