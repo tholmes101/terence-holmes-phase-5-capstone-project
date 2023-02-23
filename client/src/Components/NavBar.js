@@ -13,7 +13,8 @@ function NavBar({ user,setUser }) {
 
   return (
     <Nav>
-        <p> Logged in as: {user.username} </p>
+        <p> Logged in as: <b>{user.username}</b> </p>
+        <br></br>
         <button className="button-primary" variant="outline" onClick={handleLogoutClick}>
           Logout
         </button>
