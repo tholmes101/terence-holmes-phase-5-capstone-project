@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Error, FormField } from "../styles";
+import { Button, Label, Input } from "../styles";
 
 // Login Feature - allows users to log back into an existing account
 function Login({setUser}) {
@@ -31,8 +32,8 @@ function Login({setUser}) {
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="twelve columns">
-          <label htmlFor="username">Username</label>
-          <input
+          <Label htmlFor="username">Username</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="username"
@@ -40,8 +41,8 @@ function Login({setUser}) {
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
-          <label htmlFor="password">Password</label>
-          <input
+          <Label htmlFor="password">Password</Label>
+          <Input
             className="u-full-width"
             type="password"
             id="password"
@@ -49,9 +50,9 @@ function Login({setUser}) {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <button className="button-primary">
+          <Button variant="fill" color="primary" type="submit">
             {isLoading ? "Loading..." : "Login"}
-          </button>
+          </Button>
           <FormField>
             {errors.map((errors) => (
               <Error key={errors}>{errors}</Error>

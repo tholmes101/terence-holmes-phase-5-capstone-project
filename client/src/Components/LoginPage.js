@@ -2,6 +2,7 @@ import { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import styled from "styled-components";
+import { Button } from "../styles";
 
 // Creates a page to login or signup
 function LoginPage({setUser}) {
@@ -18,9 +19,9 @@ function LoginPage({setUser}) {
             <p>
               <center>
                 Don't have an account? &nbsp;
-                <button className="button-primary" onClick={() => setShowLogin(false)}>
+                <Button className="button-primary" onClick={() => setShowLogin(false)}>
                   Sign Up
-                </button>
+                </Button>
               </center>
             </p>
           </>
@@ -30,9 +31,9 @@ function LoginPage({setUser}) {
               <p>
                 <center>
                   Already have an account? &nbsp;
-                  <button className="button-primary" onClick={() => setShowLogin(true)}>
+                  <Button className="button-primary" onClick={() => setShowLogin(true)}>
                     Log In
-                  </button>
+                  </Button>
                 </center>
               </p>
           </>

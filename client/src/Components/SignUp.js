@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Error, FormField } from "../styles";
+import { Button, Label, Input} from "../styles";
 
 // Sign Up feature - allows new users to sign up
 function SignUp({ setUser }) {
@@ -37,8 +38,8 @@ function SignUp({ setUser }) {
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="twelve columns">
-          <label htmlFor="username">Username</label>
-          <input
+          <Label htmlFor="username">Username</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="username"
@@ -47,8 +48,8 @@ function SignUp({ setUser }) {
             onChange={(event) => setUsername(event.target.value)}
           />
 
-          <label htmlFor="password">Password</label>
-          <input
+          <Label htmlFor="password">Password</Label>
+          <Input
             className="u-full-width"
             type="password"
             id="password"
@@ -56,8 +57,8 @@ function SignUp({ setUser }) {
             onChange={(event) => setPassword(event.target.value)}
             autoComplete="current-password"
           />
-          <label htmlFor="password">Password Confirmation</label>
-          <input
+          <Label htmlFor="password">Password Confirmation</Label>
+          <Input
             className="u-full-width"
             type="password"
             id="password_confirmation"
@@ -66,7 +67,7 @@ function SignUp({ setUser }) {
             autoComplete="current-password"
           />
 
-          <button className="button-primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+          <Button className="button-primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
           <FormField>
             {errors.map((error) => (
               <Error key={error}>{error}</Error>

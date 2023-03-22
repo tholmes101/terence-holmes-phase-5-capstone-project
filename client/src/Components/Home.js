@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "../styles";
 import Loader from "./Loader";
 
 // Displays the app's home page to login or sign up.
@@ -15,11 +16,12 @@ function Home() {
         </Logo>
         <Link to="/page">
           <Loader /><br></br>
-          <button className="button-primary">Login Or Sign Up</button>
+          <Button className="button-primary">Login Or Sign Up</Button>
         </Link>
         <br></br>
+        <br></br>
         <Link to="/about">
-          <button className="button-primary">Learn About This App</button>
+          <Button className="button-primary">Learn About This App</Button>
         </Link>
       </div>
     </center>
