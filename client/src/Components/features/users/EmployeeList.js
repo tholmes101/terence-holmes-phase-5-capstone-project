@@ -2,7 +2,6 @@ import { getEmployees, destroyEmployee } from "./usersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button } from "./styles";
-import styled from "styled-components";
 import "./styles/styles.css"
 
 // Displays the employee home page
@@ -18,7 +17,7 @@ function EmployeeList() {
   };
 
   return (
-    <Wrapper>
+    
     <div className="container">
       <div className="row">
         <h2>Naval Tech Solutions Employees</h2>
@@ -74,14 +73,7 @@ function EmployeeList() {
         )}
       </div>
     </div>
-    </Wrapper>
+   
   );
 }
-
-const Wrapper = styled.section`
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 16px;
-`;
-
 export default EmployeeList;
