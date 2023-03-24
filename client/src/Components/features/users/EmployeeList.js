@@ -1,6 +1,9 @@
 import { getEmployees, destroyEmployee } from "./usersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { Button } from "./styles";
+import styled from "styled-components";
+import "./styles/styles.css"
 
 // Displays the employee home page
 // Creates a table with buttons to load, edit, and delete employees
@@ -15,22 +18,23 @@ function EmployeeList() {
   };
 
   return (
+    <Wrapper>
     <div className="container">
       <div className="row">
         <h2>Naval Tech Solutions Employees</h2>
       </div>
       <div className="row">
         <div className="three columns">
-          <button
+          <Button
             onClick={() => dispatch(getEmployees())}
             className="button-primary"
           >
             Load Employees
-          </button>
+          </Button>
         </div>
         <div className="three columns">
           <Link to="/add-employee">
-            <button className="button-primary">Add Employees</button>
+            <Button className="button-primary">Add Employees</Button>
           </Link>
         </div>
       </div>
@@ -38,28 +42,28 @@ function EmployeeList() {
         {loading ? (
           "Loading..."
         ) : (
-          <table className="u-full-width">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Occupation</th>
-                <th>Salary</th>
-                <th>Actions</th>
+          <table className="table">
+            <thead className="thead">
+              <tr className="trHead">
+                <th >name</th>
+                <th >email</th>
+                <th >occupation</th>
+                <th >salary</th>
+                <th >actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="tbody">
               {data.length &&
                 data.map(({id, name, email, occupation, salary}, index) => (
-                  <tr key={index}>
+                  <tr className="trBody" key={index}>
                     <td>{name}</td>
                     <td>{email}</td>
                     <td>{occupation}</td>
                     <td>{salary}</td>
                     <td>
-                      <button onClick={() => handleDelete(id)}>Delete</button>
+                      <Button onClick={() => handleDelete(id)}>Delete</Button>
                       <Link to={`/edit-employee/${id}`}>
-                        <button>Edit</button>
+                        <Button>Edit</Button>
                       </Link>
                     </td>
                    
@@ -70,6 +74,14 @@ function EmployeeList() {
         )}
       </div>
     </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.section`
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 16px;
+`;
+
 export default EmployeeList;

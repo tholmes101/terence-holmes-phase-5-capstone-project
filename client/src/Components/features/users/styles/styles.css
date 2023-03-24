@@ -1,0 +1,24 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.thead {
+    position: sticky;
+    z-index: 100;
+    
+}
+
+.trHead {
+    padding: var(--sm-spacing);
+    color: var(--text);
+    background: var(--bg);
+    text-transform: capitalize;
+    font-weight: 600;
+    
+}
+
+
