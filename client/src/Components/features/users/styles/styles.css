@@ -17,8 +17,15 @@
     color: var(--text);
     background: var(--bg);
     text-transform: capitalize;
-    font-weight: 600;
-    
+    font-weight: 600;   
 }
+
+.trBody {
+    background: var(--white);
+    padding: var(--sm-spacing);
+    border: 1px solid var(--bg2);
+    font-size: 14px;
+}
+
 
 
