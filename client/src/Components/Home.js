@@ -18,8 +18,6 @@ function Home() {
           <Loader /><br></br>
           <Button className="button-primary">Login Or Sign Up</Button>
         </Link>
-        <br></br>
-        <br></br>
         <Link to="/about">
           <Button className="button-primary">Learn About This App</Button>
         </Link>
