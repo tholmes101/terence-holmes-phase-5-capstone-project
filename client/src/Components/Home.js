@@ -28,7 +28,7 @@ function Home() {
 
 const Logo = styled.h1`
   font-family: "Georgia", cursive;
-  font-size: 5rem;
+  font-size: 3rem;
   color: black;
   margin: 0;
   line-height: 1`
