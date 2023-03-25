@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "../styles";
+
 
 // Logout Feature - allows users to logout of the app
 function NavBar({ user,setUser }) {
@@ -15,9 +17,9 @@ function NavBar({ user,setUser }) {
     <Nav>
         <p> Logged in as: <b>{user.username}</b> </p>
         <br></br>
-        <button className="button-primary" variant="outline" onClick={handleLogoutClick}>
+        <Button className="button-primary" variant="outline" onClick={handleLogoutClick}>
           Logout
-        </button>
+        </Button>
         
     </Nav>
   );
