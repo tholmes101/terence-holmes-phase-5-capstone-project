@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-
 import { useState } from "react";
 import { changeEmployee} from "./usersSlice";
+import { Button } from "./styles";
 
 // Creates a basic form to change employee data 
 function EditEmployee() {
@@ -85,9 +85,9 @@ function EditEmployee() {
             value={salary}
           />
           {errors && errors && errors && errors}<br></br>
-          <button onClick={handleClick} className="button-primary">
+          <Button onClick={handleClick} className="button-primary">
             Save Changes
-          </button>
+          </Button>
         </div>
       </div>
     </div>
