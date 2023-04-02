@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { changeEmployee} from "./usersSlice";
+import styled from "styled-components";
 import { Button, Label, Input} from "./styles";
 
 // Creates a basic form to change employee data 
@@ -46,51 +47,60 @@ function EditEmployee() {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <h1>Edit employee</h1>
-      </div>
-      <div className="row">
-        <div className="four columns">
-          <Label htmlFor="nameInput">Name</Label>
-          <Input
-            className="u-full-width"
-            type="text"
-            id="nameInput"
-            onChange={handleName}
-            value={name}
-          />
-          <Label htmlFor="emailInput">Email</Label>
-          <Input
-            className="u-full-width"
-            type="email"
-            id="emailInput"
-            onChange={handleEmail}
-            value={email}
-          />
-          <Label htmlFor="occupationInput">Occupation</Label>
-          <Input
-            className="u-full-width"
-            type="text"
-            id="occupationInput"
-            onChange={handleOccupation}
-            value={occupation}
-          />
-          <Label htmlFor="salaryInput">Salary</Label>
-          <Input
-            className="u-full-width"
-            type="text"
-            id="salaryInput"
-            onChange={handleSalary}
-            value={salary}
-          />
-          {errors && errors && errors && errors}<br></br>
-          <Button onClick={handleClick} className="button-primary">
-            Save Changes
-          </Button>
+    <Wrapper>
+      <div className="container">
+        <div className="row">
+          <h1>Edit employee</h1>
+        </div>
+        <div className="row">
+          <div className="four columns">
+            <Label htmlFor="nameInput">Name</Label>
+            <Input
+              className="u-full-width"
+              type="text"
+              id="nameInput"
+              onChange={handleName}
+              value={name}
+            />
+            <Label htmlFor="emailInput">Email</Label>
+            <Input
+              className="u-full-width"
+              type="email"
+              id="emailInput"
+              onChange={handleEmail}
+              value={email}
+            />
+            <Label htmlFor="occupationInput">Occupation</Label>
+            <Input
+              className="u-full-width"
+              type="text"
+              id="occupationInput"
+              onChange={handleOccupation}
+              value={occupation}
+            />
+            <Label htmlFor="salaryInput">Salary</Label>
+            <Input
+              className="u-full-width"
+              type="text"
+              id="salaryInput"
+              onChange={handleSalary}
+              value={salary}
+            />
+            {errors && errors && errors && errors}<br></br>
+            <Button onClick={handleClick} className="button-primary">
+              Save Changes
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.section`
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 16px;
+`;
+
 export default EditEmployee;

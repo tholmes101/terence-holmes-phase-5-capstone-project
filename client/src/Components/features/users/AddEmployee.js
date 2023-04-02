@@ -52,51 +52,51 @@ function AddEmployee() {
 
   return (
     <Wrapper>
-    <div className="container">
-      <div className="row">
-        <h1>Add Employee</h1>
-      </div>
-      <div className="row">
-        <div className="seven columns">
-          <Label htmlFor="nameInput">Name</Label>
-          <Input
-            className="u-full-width"
-            type="text"
-            id="nameInput"
-            onChange={handleName}
-            value={name}
-          />
-          <Label htmlFor="emailInput">Email</Label>
-          <Input
-            className="u-full-width"
-            type="email"
-            id="emailInput"
-            onChange={handleEmail}
-            value={email}
-          />
-          <Label htmlFor="occupationInput">Occupation</Label>
-          <Input
-            className="u-full-width"
-            type="text"
-            id="occupationInput"
-            onChange={handleOccupation}
-            value={occupation}
-          />
-          <Label htmlFor="salaryInput">Salary</Label>
-          <Input
-            className="u-full-width"
-            type="text"
-            id="salaryInput"
-            onChange={handleSalary}
-            value={salary}
-          />
-          {errors && errors && errors && errors}<br></br>
-          <Button onClick={handleClick} className="button-primary">
-            Add Employee
-          </Button>
+      <div className="container">
+        <div className="row">
+          <h1>Add Employee</h1>
+        </div>
+        <div className="row">
+          <div className="seven columns">
+            <Label htmlFor="nameInput">Name</Label>
+            <Input
+              className="u-full-width"
+              type="text"
+              id="nameInput"
+              onChange={handleName}
+              value={name}
+            />
+            <Label htmlFor="emailInput">Email</Label>
+            <Input
+              className="u-full-width"
+              type="email"
+              id="emailInput"
+              onChange={handleEmail}
+              value={email}
+            />
+            <Label htmlFor="occupationInput">Occupation</Label>
+            <Input
+              className="u-full-width"
+              type="text"
+              id="occupationInput"
+              onChange={handleOccupation}
+              value={occupation}
+            />
+            <Label htmlFor="salaryInput">Salary</Label>
+            <Input
+              className="u-full-width"
+              type="text"
+              id="salaryInput"
+              onChange={handleSalary}
+              value={salary}
+            />
+            {errors && errors && errors && errors}<br></br>
+            <Button onClick={handleClick} className="button-primary">
+              Add Employee
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
     </Wrapper>
   );
 }
