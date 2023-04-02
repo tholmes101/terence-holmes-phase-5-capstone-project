@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { postEmployee } from "./usersSlice";
+import styled from "styled-components";
+import { Button, Label, Input } from "./styles";
 
 // Create a basic form to add a new employee
 function AddEmployee() {
@@ -49,38 +51,39 @@ function AddEmployee() {
   };
 
   return (
+    <Wrapper>
     <div className="container">
       <div className="row">
         <h1>Add Employee</h1>
       </div>
       <div className="row">
         <div className="seven columns">
-          <label htmlFor="nameInput">Name</label>
-          <input
+          <Label htmlFor="nameInput">Name</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="nameInput"
             onChange={handleName}
             value={name}
           />
-          <label htmlFor="emailInput">Email</label>
-          <input
+          <Label htmlFor="emailInput">Email</Label>
+          <Input
             className="u-full-width"
             type="email"
             id="emailInput"
             onChange={handleEmail}
             value={email}
           />
-          <label htmlFor="occupationInput">Occupation</label>
-          <input
+          <Label htmlFor="occupationInput">Occupation</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="occupationInput"
             onChange={handleOccupation}
             value={occupation}
           />
-          <label htmlFor="salaryInput">Salary</label>
-          <input
+          <Label htmlFor="salaryInput">Salary</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="salaryInput"
@@ -88,12 +91,20 @@ function AddEmployee() {
             value={salary}
           />
           {errors && errors && errors && errors}<br></br>
-          <button onClick={handleClick} className="button-primary">
+          <Button onClick={handleClick} className="button-primary">
             Add Employee
-          </button>
+          </Button>
         </div>
       </div>
     </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.section`
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 16px;
+`;
+
 export default AddEmployee;
