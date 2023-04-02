@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { changeEmployee} from "./usersSlice";
-import { Button } from "./styles";
+import { Button, Label, Input} from "./styles";
 
 // Creates a basic form to change employee data 
 function EditEmployee() {
@@ -52,32 +52,32 @@ function EditEmployee() {
       </div>
       <div className="row">
         <div className="four columns">
-          <label htmlFor="nameInput">Name</label>
-          <input
+          <Label htmlFor="nameInput">Name</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="nameInput"
             onChange={handleName}
             value={name}
           />
-          <label htmlFor="emailInput">Email</label>
-          <input
+          <Label htmlFor="emailInput">Email</Label>
+          <Input
             className="u-full-width"
             type="email"
             id="emailInput"
             onChange={handleEmail}
             value={email}
           />
-          <label htmlFor="occupationInput">Occupation</label>
-          <input
+          <Label htmlFor="occupationInput">Occupation</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="occupationInput"
             onChange={handleOccupation}
             value={occupation}
           />
-          <label htmlFor="salaryInput">Salary</label>
-          <input
+          <Label htmlFor="salaryInput">Salary</Label>
+          <Input
             className="u-full-width"
             type="text"
             id="salaryInput"
